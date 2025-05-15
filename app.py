@@ -50,7 +50,7 @@ def favicon_ico():
 @app.route('/favicon.png')
 def favicon_png():
     """
-    Serves the favicon.png from the .github/workflows directory (if requested).
+    Serves the favicon.png from the .github/workflows directory.
     """
     return send_from_directory(
         os.path.join(app.root_path, '.github', 'workflows'),
