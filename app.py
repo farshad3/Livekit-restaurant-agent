@@ -39,22 +39,11 @@ def start_session():
 @app.route('/favicon.ico')
 def favicon_ico():
     """
-    Serves the favicon.ico from the .github/workflows directory.
+    Serves the favicon.ico from the .github directory.
     """
     return send_from_directory(
-        os.path.join(app.root_path, '.github', 'workflows'),
+        os.path.join(app.root_path, '.github'),
         'icons8-favicon-16.png',
-        mimetype='image/png'
-    )
-
-@app.route('/favicon.png')
-def favicon_png():
-    """
-    Serves the favicon.png from the .github/workflows directory.
-    """
-    return send_from_directory(
-        os.path.join(app.root_path, '.github', 'workflows'),
-        'banner_dark.png',
         mimetype='image/png'
     )
 
