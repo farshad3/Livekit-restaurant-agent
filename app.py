@@ -37,13 +37,24 @@ def start_session():
         return jsonify({"error": error_message}), 500
 
 @app.route('/favicon.ico')
-def favicon():
+def favicon_ico():
     """
-    Serves the favicon from the .github/workflows directory.
+    Serves the favicon.ico from the .github/workflows directory.
     """
     return send_from_directory(
         os.path.join(app.root_path, '.github', 'workflows'),
         'icons8-favicon-16.png',
+        mimetype='image/png'
+    )
+
+@app.route('/favicon.png')
+def favicon_png():
+    """
+    Serves the favicon.png from the .github/workflows directory (if requested).
+    """
+    return send_from_directory(
+        os.path.join(app.root_path, '.github', 'workflows'),
+        'banner_dark.png',
         mimetype='image/png'
     )
 
