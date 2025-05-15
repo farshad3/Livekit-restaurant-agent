@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 import livekit
 
 # Initialize Flask app
@@ -35,6 +35,17 @@ def start_session():
         error_message = str(e)
         print(f"Error: {error_message}")
         return jsonify({"error": error_message}), 500
+
+@app.route('/favicon.ico')
+def favicon():
+    """
+    Serves the favicon from the .github/workflows directory.
+    """
+    return send_from_directory(
+        os.path.join(app.root_path, '.github', 'workflows'),
+        'icons8-favicon-16.png',
+        mimetype='image/png'
+    )
 
 # Debug route to check environment variables (remove this in production)
 @app.route("/debug-env")
