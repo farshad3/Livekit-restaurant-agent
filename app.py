@@ -43,7 +43,7 @@ def favicon_ico():
     """
     return send_from_directory(
         os.path.join(app.root_path, '.github'),
-        'icons8-favicon-16.png',
+        'banner_dark.png',
         mimetype='image/png'
     )
 
@@ -54,7 +54,7 @@ def favicon_png():
     """
     return send_from_directory(
         os.path.join(app.root_path, '.github'),
-        'icons8-favicon-16.png',
+        'banner_dark.png',
         mimetype='image/png'
     )
 
