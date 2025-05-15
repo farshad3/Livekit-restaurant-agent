@@ -26,5 +26,27 @@ def start_session():
     Starts a LiveKit agent session.
     """
     try:
-        # Initialize
-
+        # Initialize LiveKit session
+        session = livekit.AgentSession(LIVEKIT_API_KEY, "room_name")
+        session.start()
+        return "Session started!"
+    except Exception as e:
+        # Log and return error details
+        error_message = str(e)
+        print(f"Error: {error_message}")
+        return jsonify({"error": error_message}), 500
+
+# Debug route to check environment variables (remove this in production)
+@app.route("/debug-env")
+def debug_env():
+    """
+    Returns the environment variables for debugging.
+    """
+    return {
+        "LIVEKIT_API_KEY": LIVEKIT_API_KEY,
+        "LIVEKIT_SECRET": LIVEKIT_SECRET
+    }
+
+if __name__ == "__main__":
+    # Run the app
+    app.run(host="0.0.0.0", port=5000)
