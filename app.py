@@ -4,8 +4,8 @@ import livekit
 app = Flask(__name__)
 
 # Replace with your API key and secret
-LIVEKIT_API_KEY = "your_api_key"
-LIVEKIT_SECRET = "your_secret"
+LIVEKIT_API_KEY = os.getenv ("APIKvHpGCMNMS9q")
+LIVEKIT_SECRET = os.getenv("UNr52jrwItDtKtMb2Xf9t2n0K12ktkXiOD4zLlaCSXH")
 
 @app.route("/")
 def home():
